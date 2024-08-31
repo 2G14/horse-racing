@@ -16,7 +16,7 @@ export default class TicketQuinellaSingle {
     horseNumber1: HorseNumber,
     horseNumber2: HorseNumber,
   ): Result<TicketQuinellaSingle, Error> {
-    if (horseNumber1.value === horseNumber2.value) {
+    if (horseNumber1.equals(horseNumber2)) {
       return Result.failure(
         new Error('Cannot select the same horse number.'),
       );

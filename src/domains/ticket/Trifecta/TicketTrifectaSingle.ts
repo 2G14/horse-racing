@@ -14,9 +14,9 @@ export default class TicketTrifectaSingle {
     horseNumber3: HorseNumber,
   ): Result<TicketTrifectaSingle, Error> {
     if (
-      horseNumber1.value === horseNumber2.value ||
-      horseNumber1.value === horseNumber3.value ||
-      horseNumber2.value === horseNumber3.value
+      horseNumber1.equals(horseNumber2) ||
+      horseNumber1.equals(horseNumber3) ||
+      horseNumber2.equals(horseNumber3)
     ) {
       return Result.failure(
         new Error('Cannot select the same horse number.'),

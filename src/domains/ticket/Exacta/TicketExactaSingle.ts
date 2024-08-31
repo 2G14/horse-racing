@@ -11,7 +11,7 @@ export default class TicketExactaSingle {
     horseNumber1: HorseNumber,
     horseNumber2: HorseNumber,
   ): Result<TicketExactaSingle, Error> {
-    if (horseNumber1.value === horseNumber2.value) {
+    if (horseNumber1.equals(horseNumber2)) {
       return Result.failure(
         new Error('Cannot select the same horse number.'),
       );

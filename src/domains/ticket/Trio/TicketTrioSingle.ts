@@ -20,9 +20,9 @@ export default class TicketTrioSingle {
     horseNumber3: HorseNumber,
   ): Result<TicketTrioSingle, Error> {
     if (
-      horseNumber1.value === horseNumber2.value ||
-      horseNumber1.value === horseNumber3.value ||
-      horseNumber2.value === horseNumber3.value
+      horseNumber1.equals(horseNumber2) ||
+      horseNumber1.equals(horseNumber3) ||
+      horseNumber2.equals(horseNumber3)
     ) {
       return Result.failure(
         new Error('Cannot select the same horse number.'),

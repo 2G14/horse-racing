@@ -11,14 +11,14 @@ Deno.test('オブジェクト型の重複を検出する', () => {
   assertThrows(() => assertUnique(input, (item) => item.id), '重複あり');
 });
 
-Deno.test('重複がない場合はエラーを投げない', () => {
+Deno.test('プリミティブな値で重複がない場合はエラーを投げない', () => {
   const input = [1, 2, 3];
   assertUnique(input); // 何も起こらないことを期待
 });
 
-Deno.test('オブジェクト型の重複を検出する', () => {
-  const input = [{ id: 1 }, { id: 2 }, { id: 1 }];
-  assertThrows(() => assertUnique(input, (item) => item.id), '重複あり');
+Deno.test('オブジェクト型で重複がない場合はエラーを投げない', () => {
+  const input = [{ id: 1 }, { id: 2 }, { id: 3 }];
+  assertUnique(input, (item) => item.id); // 何も起こらないことを期待
 });
 
 Deno.test('空配列を渡すとエラーを投げない', () => {

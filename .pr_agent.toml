@@ -1,0 +1,14 @@
+[pr_reviewer]
+extra_instructions = "説明はすべて日本語で記述してください。"
+
+[pr_description]
+extra_instructions = "すべての説明、コメント、フィードバックは日本語で記述してください。"
+
+[pr_code_suggestions]
+extra_instructions = "すべての説明、コメント、フィードバックは日本語で記述してください。"
+commitable_code_suggestions=true
+
+[github_action_config]
+auto_review=true
+auto_describe=true
+auto_improve=true

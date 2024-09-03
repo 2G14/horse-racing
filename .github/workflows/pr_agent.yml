@@ -19,9 +19,9 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          pr_description.extra_instructions: '日本語で回答してください。'
-          pr_reviewer.extra_instructions: '日本語で回答してください。'
-          pr_code_suggestions.extra_instructions: '日本語で回答してください。'
+          pr_description.extra_instructions: '説明はすべて日本語で記述してください。'
+          pr_reviewer.extra_instructions: 'すべての説明、コメント、フィードバックは日本語で記述してください。'
+          pr_code_suggestions.extra_instructions: 'すべての説明、コメント、フィードバックは日本語で記述してください。'
           github_action_config.auto_review: "true"
           github_action_config.auto_describe: "true"
           github_action_config.auto_improve: "true"

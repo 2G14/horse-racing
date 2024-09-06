@@ -1,0 +1,29 @@
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+  issue_comment:
+
+jobs:
+  pr_agent_job:
+    if: ${{ github.event.sender.type != 'Bot' }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+    name: Run pr agent on every pull request, respond to user comments
+    steps:
+      - name: PR Agent action step
+        id: pragent
+        uses: docker://codiumai/pr-agent:0.24-github_action
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          config.model: "gpt-4o-mini-2024-07-18"
+          github_action_config.auto_review: "true"
+          github_action_config.auto_describe: "true"
+          github_action_config.auto_improve: "true"
+          pr_description.extra_instructions: "説明はすべて日本語で記述してください。"
+          pr_reviewer.extra_instructions: "すべての説明、コメント、フィードバックは日本語で記述してください。"
+          pr_code_suggestions.extra_instructions: "すべての説明、コメント、フィードバックは日本語で記述してください。"
+          pr_code_suggestions.commitable_code_suggestions: "true"
